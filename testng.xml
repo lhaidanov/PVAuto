@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="TestTest" thread-count="2" parallel="classes" >
+    <test verbose="0" name="Command line test">
+        <parameter name="parameter1" value="45"/>
+        <classes>
+            <class name="TestTest"/>
+            <class name="TestTest11"/>
+        </classes>
+    </test>
+    <test verbose="0" name="Command line test1">
+        <parameter name="parameter1" value="55"/>
+        <classes>
+            <class name="TestTest11"/>
+        </classes>
+    </test><!-- Command line test -->
+</suite> <!-- TestTest -->
