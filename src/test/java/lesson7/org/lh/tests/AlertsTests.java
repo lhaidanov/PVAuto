@@ -1,15 +1,14 @@
 package lesson7.org.lh.tests;
 
 import lesson7.org.lh.app.Constants;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import lesson7.org.lh.webdriver.DriverHolder;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class AlertsTests extends BaseTest{
+    WebDriver driver = DriverHolder.getInstance().getDriver();
 
     @BeforeClass
     public void beforeAlertsTestsClass(){
@@ -101,7 +100,7 @@ public class AlertsTests extends BaseTest{
     public void clickButtonWithJS(String buttonText){
         String buttonXPATH = String.format("//button[text()='%s']", buttonText);
         WebElement element = driver.findElement(By.xpath(buttonXPATH));
-        ((JavascriptExecutor)driver).executeScript("return arguments[0].click();",element);
+        DriverHolder.getInstance().getJavaScriptExecutor().executeScript("return arguments[0].click();",element);
     }
 
 }

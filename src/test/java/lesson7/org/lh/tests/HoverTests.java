@@ -1,7 +1,9 @@
 package lesson7.org.lh.tests;
 
 import lesson7.org.lh.app.Constants;
+import lesson7.org.lh.webdriver.DriverHolder;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -11,6 +13,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class HoverTests extends BaseTest {
+    WebDriver driver = DriverHolder.getInstance().getDriver();
     @BeforeClass
     public void beforeHoverTestsClass() {
         goToUrl(Constants.HOVER_PAGE);

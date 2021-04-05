@@ -1,5 +1,6 @@
 package lesson7.org.lh.tests;
 
+import lesson7.org.lh.webdriver.DriverHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,7 @@ public class ActionsTests extends BaseTest{
     public void sendKeysTest(){
         goToUrl("https://the-internet.herokuapp.com/forgot_password");
         WebElement email = getElement(By.id("email"));
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(DriverHolder.getInstance().getDriver());
 
         actions
                 .sendKeys(email,"Testtext")
@@ -50,14 +51,14 @@ public class ActionsTests extends BaseTest{
 //        WebDriverWait wait = new WebDriverWait(driver,15);
 //        wait.until(ExpectedConditions
 //                .visibilityOfAllElementsLocatedBy(By.cssSelector(".square.ui-draggable")));
-        driver.switchTo().frame("ExampleFrame-94");
+        DriverHolder.getInstance().getDriver().switchTo().frame("ExampleFrame-94");
 
         WebElement draggableElement = getElement(By.cssSelector(".square.ui-draggable"));
         WebElement dragToElement = getElement(By.cssSelector(".squaredotted.ui-droppable"));
 
 
 
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(DriverHolder.getInstance().getDriver());
 //        actions.dragAndDrop(draggableElement,dragToElement).build().perform();
 
         actions

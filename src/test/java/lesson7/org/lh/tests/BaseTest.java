@@ -1,5 +1,6 @@
 package lesson7.org.lh.tests;
 
+import lesson7.org.lh.webdriver.DriverHolder;
 import lesson7.org.lh.webdriver.WebDriverEnum;
 import lesson7.org.lh.webdriver.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -9,32 +10,36 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
-    protected static WebDriver driver = null;
+//    line was commented, as we will not init driver anymore in this class
+//    it was already init in class DriverHolder
+//    protected static WebDriver driver = null;
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
-        driver = WebDriverFactory.initDriver(WebDriverEnum.CHROME);
+        DriverHolder.getInstance().initDriver(WebDriverEnum.CHROME);
+//        driver = WebDriverFactory.initDriver(WebDriverEnum.CHROME);
     }
 
     @AfterSuite(alwaysRun = true)
-    public void afterSuite(){
-        if (driver !=null){
-            driver.quit();
+    public void afterSuite() {
+        if (DriverHolder.getInstance().getDriver() != null) {
+            DriverHolder.getInstance().getDriver().quit();
         }
     }
 
-    protected void goToUrl(String url){
-        driver.get(url);
+    protected void goToUrl(String url) {
+        DriverHolder.getInstance().getDriver().get(url);
     }
 
-    protected String getHeaderText(){
-        return driver.findElement(By.cssSelector("#content h3")).getText();
+    protected String getHeaderText() {
+        return DriverHolder.getInstance().getDriver().findElement(By.cssSelector("#content h3")).getText();
     }
 
-    protected WebElement getElement(By element){
-        return driver.findElement(element);
+    protected WebElement getElement(By element) {
+        return DriverHolder.getInstance().getDriver().findElement(element);
     }
-    protected void closeCurrentWindow(){
-        driver.close();
+
+    protected void closeCurrentWindow() {
+        DriverHolder.getInstance().getDriver().close();
     }
 }
