@@ -1,5 +1,6 @@
 package lesson7.org.lh.pageobjects.login;
 
+import lesson7.org.lh.pageobjects.BasePage;
 import lesson7.org.lh.webdriver.DriverHolder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AfterLoginPage {
+public class AfterLoginPage extends BasePage {
 
 
     @FindBy(css = ".flash.success")
@@ -20,10 +21,6 @@ public class AfterLoginPage {
 
     @FindBy(css = "a.radius")
     private WebElement logoutButton;
-
-    public AfterLoginPage () {
-        PageFactory.initElements(DriverHolder.getInstance().getDriver(),this);
-    }
 
     public LoginPage logout() {
         logoutButton.click();

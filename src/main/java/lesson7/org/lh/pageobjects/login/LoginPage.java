@@ -1,5 +1,6 @@
 package lesson7.org.lh.pageobjects.login;
 
+import lesson7.org.lh.pageobjects.BasePage;
 import lesson7.org.lh.webdriver.DriverHolder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     @FindBy(id = "username")
     private WebElement userNameInput;
@@ -28,9 +29,6 @@ public class LoginPage {
     @FindBy(tagName = "h2")
     private WebElement header;
 
-    public LoginPage () {
-        PageFactory.initElements(DriverHolder.getInstance().getDriver(),this);
-    }
 
     public LoginPage inputName(String name) {
         userNameInput.sendKeys(name);
