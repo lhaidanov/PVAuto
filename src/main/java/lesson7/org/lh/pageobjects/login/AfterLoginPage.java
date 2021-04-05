@@ -1,5 +1,6 @@
 package lesson7.org.lh.pageobjects.login;
 
+import lesson7.org.lh.webdriver.DriverHolder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AfterLoginPage {
 
-    private WebDriver driver;
 
     @FindBy(css = ".flash.success")
     private WebElement successBanner;
@@ -21,14 +21,13 @@ public class AfterLoginPage {
     @FindBy(css = "a.radius")
     private WebElement logoutButton;
 
-    public AfterLoginPage (WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver,this);
+    public AfterLoginPage () {
+        PageFactory.initElements(DriverHolder.getInstance().getDriver(),this);
     }
 
     public LoginPage logout() {
         logoutButton.click();
-        return new LoginPage(driver);
+        return new LoginPage();
     }
 
     public boolean isSuccessBannerVisible() {
@@ -40,14 +39,14 @@ public class AfterLoginPage {
     }
 
     public AfterLoginPage waitTillPageLoaded() {
-        new WebDriverWait(driver,20)
+        new WebDriverWait(DriverHolder.getInstance().getDriver(),20)
                 .until(ExpectedConditions
                 .visibilityOfAllElements(
                         logoutButton,
                         successBanner,
                         header)
                 );
-        return new AfterLoginPage(driver);
+        return new AfterLoginPage();
     }
 
 

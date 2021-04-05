@@ -1,8 +1,10 @@
 package lesson7.org.lh.tests;
 
 import lesson7.org.lh.app.Constants;
+import lesson7.org.lh.webdriver.DriverHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -11,6 +13,7 @@ import org.testng.annotations.Test;
 import java.util.Set;
 
 public class CookiesTests extends BaseTest {
+    WebDriver driver = DriverHolder.getInstance().getDriver();
     private String userName = "tomsmith";
     private String userPass = "SuperSecretPassword!";
 

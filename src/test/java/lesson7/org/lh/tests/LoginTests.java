@@ -20,7 +20,7 @@ public class LoginTests extends BaseTest {
     @Test
     public void loginLogoutTest(){
         AfterLoginPage afterLoginPage =
-                new LoginPage(driver)
+                new LoginPage()
                 .successLogin(userName, userPass)
                 .waitTillPageLoaded();
 

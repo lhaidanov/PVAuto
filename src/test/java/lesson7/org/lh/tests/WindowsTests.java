@@ -1,12 +1,15 @@
 package lesson7.org.lh.tests;
 
 import lesson7.org.lh.app.Constants;
+import lesson7.org.lh.webdriver.DriverHolder;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class WindowsTests extends BaseTest {
+    WebDriver driver = DriverHolder.getInstance().getDriver();
 
     @BeforeClass
     public void beforeWindowsTestClass() {
