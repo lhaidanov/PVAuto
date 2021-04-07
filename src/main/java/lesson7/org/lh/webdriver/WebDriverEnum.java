@@ -2,5 +2,6 @@ package lesson7.org.lh.webdriver;
 
 public enum WebDriverEnum {
     CHROME,
-    FIREFOX
+    FIREFOX,
+    CHROME_DRIVER_FOR_DOWNLOADS
 }
