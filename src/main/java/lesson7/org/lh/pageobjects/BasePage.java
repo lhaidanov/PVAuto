@@ -8,4 +8,13 @@ public class BasePage {
         PageFactory.initElements(DriverHolder.getInstance().getDriver(), this);
     }
 
+    protected void sleep(long secs) {
+        try {
+            Thread.sleep(secs * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

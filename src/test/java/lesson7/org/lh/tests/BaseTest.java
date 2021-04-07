@@ -16,7 +16,7 @@ public class BaseTest {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
-        DriverHolder.getInstance().initDriver(WebDriverEnum.CHROME);
+        DriverHolder.getInstance().initDriver(WebDriverEnum.CHROME_DRIVER_FOR_DOWNLOADS);
 //        driver = WebDriverFactory.initDriver(WebDriverEnum.CHROME);
     }
 
