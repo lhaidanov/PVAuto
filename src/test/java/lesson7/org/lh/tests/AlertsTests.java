@@ -5,14 +5,16 @@ import lesson7.org.lh.webdriver.DriverHolder;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class AlertsTests extends BaseTest{
-    WebDriver driver = DriverHolder.getInstance().getDriver();
+    WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void beforeAlertsTestsClass(){
         goToUrl(Constants.ALERTS_PAGE);
+        driver = DriverHolder.getInstance().getDriver();
     }
 
     @Test

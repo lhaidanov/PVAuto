@@ -11,7 +11,7 @@ public class Constants {
     public static final String HOVER_PAGE = APP_URL + "/hovers";
     public static final String UPLOAD_FILE = APP_URL + "/upload";
     public static final String DOWNLOAD_FILE = APP_URL + "/download";
-
     public static File downloadFolder = new File("downloads");
+    public static File screenshotsFolder = new File("screens");
 
 }

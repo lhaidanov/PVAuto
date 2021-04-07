@@ -8,18 +8,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.Set;
 
+@Listeners(MyListener.class)
 public class CookiesTests extends BaseTest {
-    WebDriver driver = DriverHolder.getInstance().getDriver();
+    WebDriver driver;
     private String userName = "tomsmith";
     private String userPass = "SuperSecretPassword!";
 
-    @BeforeClass
+    @BeforeMethod
     public void beforeCookiesTestsClass() {
         goToUrl(Constants.LOGIN_FORM);
+        driver = DriverHolder.getInstance().getDriver();
     }
 
     @Test
@@ -27,6 +31,8 @@ public class CookiesTests extends BaseTest {
         login(userName, userPass);
         sleep(3);
         printAllCookies();
+        // was added to fail test. to delete if not need anymore
+        Assert.assertTrue(false);
     }
 
 
@@ -45,7 +51,7 @@ public class CookiesTests extends BaseTest {
     }
 
     @Test
-    public void deleteAllCoolies(){
+    public void deleteAllCookies(){
         login(userName,userPass);
         sleep(3);
         driver.manage().deleteAllCookies();
@@ -56,6 +62,8 @@ public class CookiesTests extends BaseTest {
         WebElement element = getElement(By.cssSelector(".flash.error"));
         Assert.assertTrue(element.getText().
                 contains("You must login to view the secure area!"));
+        // was added to fail test. to delete if not need anymore
+        Assert.assertTrue(false);
 
     }
 
