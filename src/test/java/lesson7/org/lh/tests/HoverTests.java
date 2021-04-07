@@ -8,15 +8,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class HoverTests extends BaseTest {
-    WebDriver driver = DriverHolder.getInstance().getDriver();
-    @BeforeClass
+    WebDriver driver;
+    @BeforeMethod
     public void beforeHoverTestsClass() {
         goToUrl(Constants.HOVER_PAGE);
+        driver = DriverHolder.getInstance().getDriver();
     }
 
 

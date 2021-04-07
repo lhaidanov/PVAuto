@@ -8,8 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.LoggerFactory;
+
+import java.util.logging.Logger;
 
 public class LoginPage extends BasePage {
+    static final Logger logger = (Logger) LoggerFactory.getLogger(LoginPage.class);
 
     @FindBy(id = "username")
     private WebElement userNameInput;
@@ -31,6 +35,7 @@ public class LoginPage extends BasePage {
 
 
     public LoginPage inputName(String name) {
+        logger.info("input name " + name);
         userNameInput.sendKeys(name);
         return this;
     }

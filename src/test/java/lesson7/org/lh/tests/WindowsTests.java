@@ -6,14 +6,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class WindowsTests extends BaseTest {
-    WebDriver driver = DriverHolder.getInstance().getDriver();
+    WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void beforeWindowsTestClass() {
         goToUrl(Constants.WINDOWS_PAGE);
+        driver = DriverHolder.getInstance().getDriver();
 
     }
 
